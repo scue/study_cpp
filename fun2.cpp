@@ -18,8 +18,12 @@
 #include <stdlib.h>
 #include <iostream>
 
-void duplicate(int& a, int& b, int& c);
-void duplicate_p(int *a, int *b, int *c);
+void duplicate(int&, int&, int&);
+void duplicate_p(int*, int*, int*);
+
+/* 只能在声明时候设定默认值 */
+int divide(int, int=2);
+// int divide(int, int b=2); 与上式相等
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +34,9 @@ int main(int argc, char *argv[])
 
     duplicate_p(&x,&y,&z);
     std::cout << "x: "<< x << " y: "<< y << " z: " << z << std::endl;
+
+    std::cout << "默认参数值: 12/defaut = " << divide(12) << std::endl;
+    std::cout << "默认参数值: 12/3 = " << divide(12, 3) << std::endl;
 
     return 0;
 }
@@ -52,4 +59,11 @@ void duplicate_p(int *a, int *b, int *c){
     *a *= 2;
     *b *= 2;
     *c *= 2;
+}
+
+/*
+ * 参数默认值
+ */
+int divide(int a, int b){
+    return (int)a/b;
 }
