@@ -28,6 +28,13 @@ int divide(int, int=2);
 /* 函数重载 */
 float divide(float, float=2.0);
 
+
+/* 内联函数，提高执行效率 */
+inline int add(int, int);
+
+/* 递归，如阶乘 */
+long factorial(long);
+
 int main(int argc, char *argv[])
 {
     int x(1), y(2), z(3);
@@ -48,6 +55,9 @@ int main(int argc, char *argv[])
     std::cout << "默认参数值: 15.1/defaut = " << divide(a) << std::endl;
     std::cout << "默认参数值: 15.1/3.8 = " << divide(a,b) << std::endl;
 
+    std::cout << "内联inline: 18+20 = " << add(18,20) << std::endl;
+
+    std::cout << "递归: 10! = " << factorial(10) << std::endl;
     return 0;
 }
 
@@ -80,4 +90,17 @@ int divide(int a, int b){
 
 float divide(float a, float b){
     return a/b;
+}
+
+/* 内联，只在声明时需要添加inline */
+int add(int a, int b){
+    return (a+b);
+}
+
+/* 递归 */
+long factorial(long n){
+    if (n > 1)
+        return (n * factorial(n-1));
+    else
+        return (1);
 }
