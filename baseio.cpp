@@ -25,9 +25,22 @@
 #include <iostream>
 
 #include <string.h>
+#include <sstream>
+
+// using namespace std;
 
 int main(int argc, char *argv[])
 {
+    /*
+     * 字符串流<sstream>
+     */
+
+    std::string mystr("1024");
+    int myint(0);
+    std::cout << "myint: " << myint << std::endl;
+    std::stringstream(mystr) >> myint;
+    std::cout << "myint: " << myint << std::endl;
+
     /*
      * base stdout:
      */
