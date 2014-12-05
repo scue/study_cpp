@@ -69,10 +69,17 @@ int main(int argc, char *argv[])
     *  what():  basic_string::_S_construct null not valid     
     */
     std::string name;
+    char full_name[100]="";
+
     std::cout << "Origin name: [" << name << "]" << std::endl;
     std::cout << "Please input your name: ";
     std::cin >> name;
     std::cout << "Your name: " << name << std::endl;
+
+    getchar();
+    std::cout << "Please input your full name: ";
+    std::cin.getline(full_name, 100);
+    std::cout << "Your full name: " << full_name << std::endl;
 
     return 0;
 }
